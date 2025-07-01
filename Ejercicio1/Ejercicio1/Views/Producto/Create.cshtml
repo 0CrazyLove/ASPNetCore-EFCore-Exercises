@@ -1,0 +1,25 @@
+﻿@model Producto
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h2>Crear producto</h2>
+    <form action="Create" method="post">
+        <h1>Nombre:</h1>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre"></span>
+        <h1>Precio</h1>
+        <input asp-for="Precio" />
+        <span asp-validation-for="Precio"></span>
+        <h1>Stock</h1>
+        <input asp-for="Stock" />
+        <span asp-validation-for="Stock"></span>
+        <button type="submit">UWU</button>
+    </form>
+        
+    @section Scripts{
+        <partial name="ValidationScriptsPartial" />
+    }
+</body>
+</html>
