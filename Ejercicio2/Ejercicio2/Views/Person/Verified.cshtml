@@ -1,0 +1,16 @@
+﻿
+@model IEnumerable<Person>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @foreach (var person in Model)
+    {
+
+    <h1>Id: @person.Id</h1>
+    <h1>Nombre:@person.Name</h1>
+    <h1>Edad: @person.Age</h1>
+    }
+</body>
+</html> 

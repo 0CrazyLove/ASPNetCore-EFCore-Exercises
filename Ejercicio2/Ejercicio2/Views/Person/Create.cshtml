@@ -1,0 +1,21 @@
+﻿@model Person 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Person</title>
+</head>
+<body>
+    <form action="Create" method="post">
+        <h1>Nombre:</h1>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+        <h1>Edad:</h1>
+        <input asp-for="Age" />
+        <span asp-validation-for="Age"></span>
+        <button type="submit">NYA</button>
+    </form>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial"/>
+
+        }
+    </body>
+</html>
