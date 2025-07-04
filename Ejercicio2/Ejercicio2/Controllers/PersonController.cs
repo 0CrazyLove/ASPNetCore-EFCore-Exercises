@@ -31,7 +31,7 @@ public class PersonController : Controller
     [HttpGet]
     public IActionResult Verified()
     {
-        var persons = _context.Persons.ToList();
+       var persons = _context.Persons.ToList();
         return View(persons);
     }
 }
