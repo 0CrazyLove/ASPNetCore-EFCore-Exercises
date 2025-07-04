@@ -1,0 +1,29 @@
+﻿@model Animal
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: black; /* fondo negro */
+            color: white; /* texto blanco */
+        }
+    </style>
+    <form action="CreateAnimal" method="post">
+
+        <label>Nombre del animal</label>
+        <input asp-for="Name" type="text" />
+        <span asp-validation-for="Name"></span>
+        <br/>
+        <label>Especie del animal</label>
+        <input asp-for="Species" type="text"/>
+        <span asp-validation-for="Species"></span>
+        <br/>
+        <label>Edad del animal</label>
+        <input asp-for="Age" type="number"/>
+        <span asp-validation-for="Age"></span>
+
+    </form>
+</body>
+</html>
