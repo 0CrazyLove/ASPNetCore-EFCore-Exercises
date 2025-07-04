@@ -31,6 +31,12 @@
                     <td>@animal.Species</td>
                     <td>@animal.Age</td>
                     <td>@animal.Stature</td>
+                    <td>
+                        <form asp-action="DeleteAnimal" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@animal.Id" />
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

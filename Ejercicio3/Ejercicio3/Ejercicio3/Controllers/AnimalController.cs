@@ -31,5 +31,16 @@ public class AnimalController : Controller
         var animals = _context.Animals.ToList();
         return View(animals);
     }
+    [HttpPost]
+    public IActionResult DeleteAnimal(int id)
+    {
+        var animal = _context.Animals.Find(id);
+        if (animal != null)
+        {
+            _context.Animals.Remove(animal);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("TableAnimals");
+    }
 }
 
