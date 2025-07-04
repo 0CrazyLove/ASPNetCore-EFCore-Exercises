@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Animal>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tabla de Animales</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: black; /* fondo negro */
+            color: white; /* texto blanco */
+        }
+    </style>
+    <h2>Lista de Animales</h2>
+    <table border="1" cellpadding="6" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Animal</th>
+                <th>Especie</th>
+                <th>Edad</th>
+                <th>Estatura</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var animal in Model)
+            {
+                <tr>
+                    <td>@animal.Id</td>
+                    <td>@animal.Name</td>
+                    <td>@animal.Species</td>
+                    <td>@animal.Age</td>
+                    <td>@animal.Stature</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

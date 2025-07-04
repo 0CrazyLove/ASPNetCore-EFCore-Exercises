@@ -15,15 +15,22 @@
         <label>Nombre del animal</label>
         <input asp-for="Name" type="text" />
         <span asp-validation-for="Name"></span>
-        <br/>
+        <br />
         <label>Especie del animal</label>
-        <input asp-for="Species" type="text"/>
+        <input asp-for="Species" type="text" />
         <span asp-validation-for="Species"></span>
-        <br/>
+        <br />
         <label>Edad del animal</label>
-        <input asp-for="Age" type="number"/>
+        <input asp-for="Age" type="number" />
         <span asp-validation-for="Age"></span>
-
+        <br />
+        <label>Estatura del animal</label>
+        <input asp-for="Stature"/>
+        <span asp-validation-for="Stature"></span>
+        <button type="submit">Guardar</button>
     </form>
-</body>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial"/>
+        }
+    </body>
 </html>

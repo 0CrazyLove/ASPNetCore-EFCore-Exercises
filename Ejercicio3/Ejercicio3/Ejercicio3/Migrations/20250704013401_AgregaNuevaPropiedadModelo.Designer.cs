@@ -3,6 +3,7 @@ using Ejercicio3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ejercicio3.Migrations
 {
     [DbContext(typeof(Ejercicio3DbContext))]
-    partial class Ejercicio3DbContextModelSnapshot : ModelSnapshot
+    [Migration("20250704013401_AgregaNuevaPropiedadModelo")]
+    partial class AgregaNuevaPropiedadModelo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,8 +43,8 @@ namespace Ejercicio3.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Stature")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Stature")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
