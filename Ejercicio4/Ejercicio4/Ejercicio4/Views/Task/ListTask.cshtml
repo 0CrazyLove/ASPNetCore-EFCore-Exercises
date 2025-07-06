@@ -1,0 +1,29 @@
+﻿
+@model IEnumerable<Ejercicio4.Models.Task>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    @foreach (var Task in Model)
+    {
+        <h1>titulo: @Task.Title</h1>
+        if (Task.IsCompleted.Equals(false))
+        {
+
+            <h1>no echa</h1>
+        }
+        if (Task.IsCompleted.Equals(true))
+        {
+            <h1>esta echa</h1>
+        }
+
+    }
+</body>
+</html>

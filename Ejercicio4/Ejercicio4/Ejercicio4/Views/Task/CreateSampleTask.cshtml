@@ -1,0 +1,22 @@
+﻿@model Ejercicio4.Models.Task
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <style>
+        body{
+            background-color:black;
+            color: white;
+        }
+    </style>
+
+    <form asp-action="CreateSampleTask" method="post">
+        <label>Nombre de la tarea</label>
+        <input asp-for="Title" />
+        <label>Terminada?</label>
+        <input  asp-for="IsCompleted" />
+        <button type="submit">subir</button>
+    </form>
+</body>
+</html>                                                                                                                      
