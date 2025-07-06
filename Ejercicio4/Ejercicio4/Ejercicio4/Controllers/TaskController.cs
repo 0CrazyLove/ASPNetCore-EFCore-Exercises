@@ -1,6 +1,5 @@
 ﻿using Ejercicio4.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 namespace Ejercicio4.Controllers;
 public class TaskController : Controller
 {
