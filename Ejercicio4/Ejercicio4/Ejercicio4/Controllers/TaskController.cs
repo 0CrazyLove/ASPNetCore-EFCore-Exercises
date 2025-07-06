@@ -30,7 +30,5 @@ public class TaskController : Controller
         var tasks = _context.Tasks.ToList(); //sin el var seria: List<Models.Task>
         return View(tasks);
     }
-
-
 }
 

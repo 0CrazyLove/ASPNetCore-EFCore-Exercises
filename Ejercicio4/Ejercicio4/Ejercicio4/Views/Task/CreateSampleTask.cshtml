@@ -5,8 +5,8 @@
 </head>
 <body>
     <style>
-        body{
-            background-color:black;
+        body {
+            background-color: black;
             color: white;
         }
     </style>
@@ -14,9 +14,14 @@
     <form asp-action="CreateSampleTask" method="post">
         <label>Nombre de la tarea</label>
         <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+        <br />
         <label>Terminada?</label>
-        <input  asp-for="IsCompleted" />
+        <input asp-for="IsCompleted" />
         <button type="submit">subir</button>
     </form>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
 </body>
 </html>                                                                                                                      

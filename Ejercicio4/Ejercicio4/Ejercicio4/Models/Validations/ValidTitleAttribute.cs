@@ -8,12 +8,12 @@ public class ValidTitleAttribute : ValidationAttribute
     {
         if (value is string title && !string.IsNullOrWhiteSpace(title))
         {
-            var regex = new Regex(@"^[A-Z][A-Za-z]{2,14}$");
-            if (!regex.IsMatch(title))
+           
+            if (Regex.IsMatch(title, @"^[A-Z][A-Za-z]{2,14}$"))
             {
-                return new ValidationResult("El título debe comenzar con mayúscula, no contener números, tildes ni caracteres especiales, y tener entre 3 y 15 caracteres.");
+                return ValidationResult.Success;
             }
-            return ValidationResult.Success;
+            return new ValidationResult("El título debe comenzar con una letra mayúscula y tener entre 3 y 15 caracteres alfabéticos.");
         }
         return new ValidationResult("El título es obligatorio.");
     }
