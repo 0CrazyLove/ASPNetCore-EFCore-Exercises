@@ -33,8 +33,8 @@ public class ProductosController : ControllerBase
     [HttpPost]
     public ActionResult<Producto> Post(Producto nuevo)
     {
-       
-        nuevo.Id = productos.Count + 1; 
+
+        nuevo.Id = productos.Count + 1;
         productos.Add(nuevo);
         return CreatedAtAction(nameof(Get), new { id = nuevo.Id }, nuevo);
     }
