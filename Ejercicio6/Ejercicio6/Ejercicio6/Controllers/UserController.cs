@@ -19,7 +19,7 @@ namespace Ejercicio6.Controllers
             return _context.Users.ToList();
         }
         [HttpGet("{id}")]
-        public ActionResult<User> SearchUserId(int id)
+        public ActionResult<User> SearchUserById(int id)
         {
             var User = _context.Users.SingleOrDefault(u => u.Id == id);
             if (User == null) return NotFound();
@@ -34,7 +34,19 @@ namespace Ejercicio6.Controllers
             return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
         }
         [HttpPut("{id}")]
-        public ActionResult<User> DelateUserId(int id)
+        public ActionResult PutByUser(int id, User user)
+        {
+            var User = _context.Users.SingleOrDefault(u => u.Id == id);
+            if (User == null) return NotFound();
+            User.Name = user.Name;
+            User.Age = user.Age;
+            _context.SaveChanges();
+            return NoContent();
+
+
+        }
+        [HttpDelete("{id}")]
+        public ActionResult DelateUserById(int id)
         {
             var User = _context.Users.SingleOrDefault(u => u.Id == id);
             if (User == null) return NotFound();
@@ -43,6 +55,7 @@ namespace Ejercicio6.Controllers
             return NoContent();
 
         }
+
 
     }
 }
