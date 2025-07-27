@@ -25,8 +25,6 @@ namespace Ejercicio6.Controllers
             if (User == null) return NotFound();
             return Ok(User);
         }
-
-
         [HttpPost]
         // POST api/user
         public ActionResult<User> CreateUser(User user)
@@ -34,7 +32,17 @@ namespace Ejercicio6.Controllers
             _context.Users.Add(user);
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
-        }   
+        }
+        [HttpPut("{id}")]
+        public ActionResult<User> DelateUserId(int id)
+        {
+            var User = _context.Users.SingleOrDefault(u => u.Id == id);
+            if (User == null) return NotFound();
+            _context.Users.Remove(User);
+            _context.SaveChanges();
+            return NoContent();
+
+        }
 
     }
 }
