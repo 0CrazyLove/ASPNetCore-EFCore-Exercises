@@ -4,6 +4,7 @@ using Ejercicio6.Models;
 
 namespace Ejercicio6.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
@@ -19,7 +20,7 @@ namespace Ejercicio6.Controllers
         }
         [HttpPost]
         // POST api/user
-        public ActionResult CreateUser(User user)
+        public ActionResult<User> CreateUser(User user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
