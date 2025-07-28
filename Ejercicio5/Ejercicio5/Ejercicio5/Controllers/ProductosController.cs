@@ -8,8 +8,6 @@ public class ProductosController : ControllerBase
 {
     private static List<Producto> productos = new List<Producto>
     {
-        new Producto { Id = 1, Nombre = "Producto 1", Precio = 10.0 },
-        new Producto { Id = 2, Nombre = "Producto 2", Precio = 20.0 },
     };
     // Get: api/productos
     [HttpGet]
@@ -33,11 +31,10 @@ public class ProductosController : ControllerBase
     [HttpPost]
     public ActionResult<Producto> Post(Producto nuevo)
     {
-
         nuevo.Id = productos.Count + 1;
         productos.Add(nuevo);
-        return CreatedAtAction(nameof(Get), new { id = nuevo.Id }, nuevo);
-    }
+        return CreatedAtAction(nameof(Get), new { id= nuevo.Id }, nuevo);
+    } 
     // PUT: api/productos/{id}
     [HttpPut("{id}")]
     public IActionResult Put(int id, Producto actualizado)
