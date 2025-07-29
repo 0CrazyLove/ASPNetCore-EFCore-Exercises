@@ -15,40 +15,30 @@ public class UserController : ControllerBase
     {
         _context = context;
     }
-    [HttpGet]
-    public ActionResult<IEnumerable<User>> GetUsers()
-    {
-        var users = _context.Users.ToList();
-        return Ok(users);
-    }
-    [HttpGet("{id}")]
-    public ActionResult<User> GetUserByUser(int id)
-    {
-        var User = _context.Users.SingleOrDefault(u => u.Id == id);
-        if (User == null) return NotFound();
-        return Ok(User);
-    }
+    //[HttpGet("{id}")]
+
     [HttpGet("Search")]
-    public IActionResult SearchUser([FromQuery] string? name, [FromQuery] int? age)
+    public IActionResult SearchUser([FromQuery] string? name, [FromQuery] int? id)
     {
         var query = _context.Users.AsQueryable();
         if (!string.IsNullOrWhiteSpace(name))
         {
             query = query.Where(u => u.Name != null && u.Name.Contains(name));
         }
-        if(age != null)
+        if (id != null)
         {
-            query = query.Where(u => u.Age == age);
+            query = query.Where(u => u.Id == id);
         }
         var resultado = query.ToList();
         return Ok(resultado);
     }
+    
     [HttpPost]
-    public ActionResult CreateUser(User user)
+     public ActionResult CreateUser(User user)
     {
         _context.Users.Add(user);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
+        return CreatedAtAction(nameof(SearchUser), new { id = user.Id }, user);
     }
-
+    
 }
