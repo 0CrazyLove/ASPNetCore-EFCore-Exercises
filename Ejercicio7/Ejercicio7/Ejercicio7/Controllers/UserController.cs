@@ -15,9 +15,8 @@ public class UserController : ControllerBase
     {
         _context = context;
     }
-    //[HttpGet("{id}")]
-
-    [HttpGet("Search")]
+   
+    [HttpGet]
     public IActionResult SearchUser([FromQuery] string? name, [FromQuery] int? id)
     {
         var query = _context.Users.AsQueryable();
