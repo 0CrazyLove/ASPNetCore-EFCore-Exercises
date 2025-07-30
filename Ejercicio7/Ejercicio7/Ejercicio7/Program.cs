@@ -23,5 +23,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 // This adds the conventional route needed for your UserController
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
