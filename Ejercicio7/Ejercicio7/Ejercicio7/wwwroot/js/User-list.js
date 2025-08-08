@@ -7,13 +7,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function cargarUsuarios() {
+function GetUsers() {
     return __awaiter(this, void 0, void 0, function* () {
-        const respuesta = yield fetch('/api/UserApi');
-        const usuarios = yield respuesta.json();
+        const answer = yield fetch('/api/UserAPi');
+        const Users = yield answer.json();
         const lista = document.getElementById('userList');
         lista.innerHTML = '';
-        usuarios.forEach((usuario) => {
+        Users.forEach((usuario) => {
             const li = document.createElement('li');
             li.textContent = `ID: ${usuario.id}, Nombre: ${usuario.name}, Email: ${usuario.email}, Edad: ${usuario.age}`;
             lista.appendChild(li);
@@ -21,7 +21,7 @@ function cargarUsuarios() {
     });
 }
 document.addEventListener('DOMContentLoaded', () => {
-    cargarUsuarios();
+    GetUsers();
 });
 export {};
 //# sourceMappingURL=User-list.js.map
