@@ -30,8 +30,13 @@ public class UserApiController : ControllerBase
     [HttpPost]
     public IActionResult CreateUser(User user)
     {
-        _context.Users.Add(user);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
+        if (ModelState.IsValid)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
+
+        }
+        return BadRequest(ModelState);
     }
 }
