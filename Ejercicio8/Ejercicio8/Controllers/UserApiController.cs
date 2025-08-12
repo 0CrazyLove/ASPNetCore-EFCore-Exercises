@@ -15,14 +15,14 @@ public class UserApiController : ControllerBase
     [HttpGet]
     public IActionResult GetUsers([FromQuery] int? id, string? name)
     {
-        var query = _context.Users.AsQueryable(); //repasar lo de AsQueryable
+        var query = _context.Users.AsQueryable(); 
         if (id.HasValue)
         {
             query = query.Where(u => u.Id == id);
         }
         if (!string.IsNullOrWhiteSpace(name))
         {
-            query = query.Where(u => u.Name != null && u.Name.Contains(name)); //repasar esta linea y lo de lambda
+            query = query.Where(u => u.Name != null && u.Name.Contains(name)); 
         }
         var users = query.ToList();
         return Ok(users);

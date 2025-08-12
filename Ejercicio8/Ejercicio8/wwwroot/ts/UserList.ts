@@ -1,12 +1,12 @@
 interface User {
     id: number;
     name: string | null;
-    lastName: string | null;
+    lastName: string | null
 }
 /// Función para obtener los usuarios desde la API y mostrarlos en la lista
 async function GetUsers(): Promise<void> {
     const getAnswer = await fetch('/api/UserAPi');
-    const users: User[] = await getAnswer.json();
+    const users:User[] = await getAnswer.json();
     const userList = document.getElementById('user-list') as HTMLUListElement;
     userList.innerHTML = ''; // Limpiar la lista antes de agregar nuevos usuarios
     users.forEach(u => {
