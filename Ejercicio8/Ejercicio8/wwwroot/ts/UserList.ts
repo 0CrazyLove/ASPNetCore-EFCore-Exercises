@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevenir el envío del formulario
         const formData = new FormData(form);
-        const name = formData.get('name')?.toString() || '';
-        const lastName = formData.get('lastName')?.toString() || '';
+        const name = formData.get('nameUser')?.toString() ?? '';
+        const lastName = formData.get('lastName')?.toString() ?? '';
         await PostUser(name, lastName);
         form.reset(); // Limpiar el formulario después de enviar
     })
