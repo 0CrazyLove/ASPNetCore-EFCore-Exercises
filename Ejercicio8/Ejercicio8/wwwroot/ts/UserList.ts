@@ -27,6 +27,7 @@ async function PostUser(name: string, lastName: string): Promise<void> {
         },
         body: JSON.stringify({ name, lastName })
     });
+   
 
     if (response.ok) {
         // Si todo salió bien, puedes actualizar la lista
@@ -38,10 +39,9 @@ async function PostUser(name: string, lastName: string): Promise<void> {
 }
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('user-form') as HTMLFormElement;
     GetUsers(); // Llamar a la función para obtener los usuarios al cargar la página
+    const form = document.getElementById('user-form') as HTMLFormElement;
     form.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevenir el envío del formulario
         const formData = new FormData(form);
